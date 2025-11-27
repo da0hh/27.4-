@@ -1,0 +1,205 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+enum class Color { Red, Green, Blue, None};
+
+class СircumscriptionRectangle
+{
+	double widthRec = 0;
+	double heightRec = 0;
+
+public:
+	double getWidthRec() { return widthRec; }
+	double getHeightRec() { return heightRec; }
+
+	void setSize(double width, double height) {
+		widthRec = width;
+		heightRec = height;
+	}
+
+	double getWidth() { return widthRec; }
+	double getHeight() { return heightRec; }
+};
+
+class Figure
+{
+public:
+	double coordinates_center = 0.f;
+	Color color = Color::None;
+};
+
+class Circle : public Figure, public СircumscriptionRectangle
+{
+	double radius = 5;
+
+public:
+
+	void setRadius(double radius) {
+		this->radius = radius;
+	}
+
+	void setCoordinatesCenter(double center_point) {
+		Figure figure;
+		figure.coordinates_center = center_point;
+	}
+
+	void setColor(Color color) {
+		Figure figure;
+		figure.color = color;
+	}
+
+	void getArea() {
+		double area = atan(1) * 4 * radius;
+		cout << "Circle area: " << area << endl;
+	}
+
+	void getSizeCircus() {
+		if (getWidth() < radius) {
+			double widthCirc = radius;
+			setSize(widthCirc, widthCirc);
+		}
+		cout << "Width: " << getWidth() << " Height: " << getHeight() << endl;
+	}
+};
+
+class Square : public Figure, public СircumscriptionRectangle
+{
+	double edge = 5;
+
+public:
+
+	void setEdge(double edge) {
+		this->edge = edge;
+		assert(edge < 0);
+	}
+
+	void setCoordinatesCenter(double center_point) {
+		Figure figure;
+		figure.coordinates_center = center_point;
+	}
+
+	void setColor(Color color) {
+		Figure figure;
+		figure.color = color;
+	}
+
+	void getArea() {
+		double area = pow(edge, 2);
+		cout << "Square area: " << area << endl;
+	} 
+
+	void getSizeCircus() {
+		if (getWidth() < edge) {
+			double widthCirc = edge + 5;
+			setSize(widthCirc, widthCirc);
+		}
+		cout << "Width: " << getWidth() << " Height: " << getHeight() << endl;
+	}
+};
+
+class Triangle : public Figure, public СircumscriptionRectangle
+{
+	double edge = 5;
+
+public:
+
+	void setEdge(double edge) {
+		this->edge = edge;
+	}
+
+	void setCoordinatesCenter(double center_point) {
+		Figure figure;
+		figure.coordinates_center = center_point;
+	}
+
+	void setColor(Color color) {
+		Figure figure;
+		figure.color = color;
+	}
+
+	void getArea() {
+		double area = edge * edge * sqrt(3) / 4;
+		cout << "Triangle area: " << area << endl;
+	}
+
+	void getSizeCircus() {
+		if (getWidth() < edge) {
+			double widthCirc = edge + 5;
+			setSize(widthCirc, widthCirc);
+		}
+		cout << "Width: " << getWidth() << " Height: " << getHeight() << endl;
+	}
+};
+
+class Rectangle : public Figure, public СircumscriptionRectangle
+{
+	double width = 5;
+	double height = 5;
+
+public:
+
+	void setWidth(double width){
+		this->width = width;
+	}
+
+	void setHeight(double height) {
+		this->height = height;
+	}
+
+	void setCoordinatesCenter(double center_point) {
+		Figure figure;
+		figure.coordinates_center = center_point;
+	}
+
+	void setColor(char color) {
+		Figure figure;
+		figure.color = static_cast<Color>(color);
+	}
+
+	void getArea() {
+		double area = width * height;
+		cout << "Rectangle area: " << area << endl;
+	}
+
+	void getSizeCircus() {
+		if (getWidth() < width || getHeight() < height) {
+			double widthCirc = width + 5;
+			double heightCirc = height + 5;
+			setSize(widthCirc, heightCirc);
+		}
+		cout << "Width: " << getWidth() << " Height: " << getHeight() << endl;
+	}
+};
+
+int main() {
+	setlocale(LC_ALL, "RU");
+	string rec = "rectangle", sqr = "square", tr = "triangle", cir = "circle";
+	cout << "-" << rec << "(10x5)";
+	Rectangle rectangle;
+	rectangle.setSize(10, 5);
+	rectangle.getArea();
+	rectangle.getSizeCircus();
+	cout << endl;
+	cout << "-" << sqr << "(10x5)";
+	Square sqrt;
+	sqrt.setSize(10, 5);
+	sqrt.getArea();
+	sqrt.getSizeCircus();
+	cout << endl;
+	cout << "-" << tr << "(10)";
+	Triangle tri;
+	tri.setEdge(10);
+	tri.getArea();
+	tri.getSizeCircus();
+	cout << endl;
+	cout << "-" << cir << "(10)";
+	Circle circle;
+	circle.setRadius(10);
+	circle.getArea();
+	circle.getSizeCircus();
+}
