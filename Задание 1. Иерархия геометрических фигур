@@ -179,25 +179,28 @@ public:
 int main() {
 	setlocale(LC_ALL, "RU");
 	string rec = "rectangle", sqr = "square", tr = "triangle", cir = "circle";
-	cout << "-" << rec << "(10x5)";
+	cout << "-" << rec << "(10x5)" << endl;
 	Rectangle rectangle;
 	rectangle.setSize(10, 5);
 	rectangle.getArea();
 	rectangle.getSizeCircus();
 	cout << endl;
-	cout << "-" << sqr << "(10x5)";
+
+	cout << "-" << sqr << "(10x5)" << endl;
 	Square sqrt;
 	sqrt.setSize(10, 5);
 	sqrt.getArea();
 	sqrt.getSizeCircus();
 	cout << endl;
-	cout << "-" << tr << "(10)";
+
+	cout << "-" << tr << "(10)" << endl;
 	Triangle tri;
 	tri.setEdge(10);
 	tri.getArea();
 	tri.getSizeCircus();
 	cout << endl;
-	cout << "-" << cir << "(10)";
+
+	cout << "-" << cir << "(10)" << endl;
 	Circle circle;
 	circle.setRadius(10);
 	circle.getArea();
