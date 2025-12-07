@@ -1,0 +1,5 @@
+C:/Users/nikit/projects/practic work/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/nikit/projects/practic work/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/nikit/projects/practic work/out/build/x64-debug/src/CMakeFiles/practic_work.dir
+C:/Users/nikit/projects/practic work/out/build/x64-debug/src/CMakeFiles/edit_cache.dir
+C:/Users/nikit/projects/practic work/out/build/x64-debug/src/CMakeFiles/rebuild_cache.dir
